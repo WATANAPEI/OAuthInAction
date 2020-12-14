@@ -109,3 +109,4 @@ dist
 bin
 .cache
 .bash_history
+ch-3-ex-1/database.nosql
