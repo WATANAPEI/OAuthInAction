@@ -6,6 +6,7 @@ var querystring = require('querystring');
 var cons = require('consolidate');
 var randomstring = require("randomstring");
 var __ = require('underscore');
+const { access } = require("fs");
 __.string = require('underscore.string');
 
 var app = express();
@@ -44,17 +45,29 @@ app.get('/', function (req, res) {
 });
 
 app.get('/authorize', function(req, res){
+	state = randomstring.generate();
 
 	var authorizedUrl = buildUrl(authServer.authorizationEndpoint, {
 		response_type: 'code',
 		client_id: client.client_id,
-		redirect_uri: client.redirect_uris[0]
+		redirect_uri: client.redirect_uris[0],
+		state: state
 	});
 	res.redirect(authorizedUrl);
 
 });
 
 app.get('/callback', function(req, res){
+
+	if(req.query.error) {
+		res.render('error', {error: req.query.error});
+		return;
+	}
+
+	if(req.query.state != state) {
+		res.render('error', {error: 'State value did not match'});
+		return;
+	}
 
 	var code = req.query.code;
 	var form_data = qs.stringify({
@@ -85,9 +98,22 @@ app.get('/callback', function(req, res){
 
 app.get('/fetch_resource', function(req, res) {
 
-	/*
-	 * Use the access token to call the resource server
-	 */
+	if(!access_token) {
+		res.render('error', { error: 'Missing access token.'});
+		return;
+	}
+	var headers = {
+		'Authorization': 'Bearer ' + access_token
+	};
+	var resource = request('POST', protectedResource, { headers: headers});
+	if(resource.statusCode >= 200 && resource.statusCode < 300) {
+		var body = JSON.parse(resource.getBody());
+		res.render('data', { resource: body });
+		return;
+	} else {
+		res.render('error', { error: 'Server returned response code: '+ resource.statusCode });
+		return;
+	}
 
 });
 
