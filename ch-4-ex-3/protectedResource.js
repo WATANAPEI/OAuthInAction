@@ -32,7 +32,7 @@ var getAccessToken = function(req, res, next) {
 	} else if (req.query && req.query.access_token) {
 		inToken = req.query.access_token
 	}
-
+	
 	console.log('Incoming token: %s', inToken);
 	nosql.one().make(function(builder) {
 	  builder.where('access_token', inToken);
@@ -57,37 +57,16 @@ var requireAccessToken = function(req, res, next) {
 	}
 };
 
-var savedWords = [];
+app.get('/produce', getAccessToken, requireAccessToken, function(req, res) {
+	var produce = {fruit: ['apple', 'banana', 'kiwi'], 
+		veggies: ['lettuce', 'onion', 'potato'], 
+		meats: ['bacon', 'steak', 'chicken breast']};	
 
-app.get('/words', getAccessToken, requireAccessToken, function(req, res) {
-	if(__.contains(req.access_token.scope, 'read')) {
-		res.json({words: savedWords.join(' '), timestamp: Date.now()});
-	} else {
-		res.set('WWW-Authenticate', 'Bearer realm=localhost:9002, error="insufficient_scope", scope="read"');
-		res.status(403).end();
-	}
-});
+	/*
+	 * Add different kinds of produce based on the incoming token's scope
+	 */
 
-app.post('/words', getAccessToken, requireAccessToken, function(req, res) {
-	if(__.contains(req.access_token.scope, 'write')) {
-		if (req.body.word) {
-			savedWords.push(req.body.word);
-		}
-		res.status(201).end();
-	} else {
-		res.set('WWW-Authenticate', 'Bearer realm=localhost:9002, error="insufficient_scope", scope="write"');
-		res.status(403).end();
-	}
-});
-
-app.delete('/words', getAccessToken, requireAccessToken, function(req, res) {
-	if(__.contains(req.access_token.scope, 'delete')) {
-		savedWords.pop();
-		res.status(204).end();
-	} else {
-		res.set('WWW-Authenticate', 'Bearer realm=localhost:9002, error="insufficient_scope", scope="delete"');
-		res.status(403).end();
-	}
+	res.json(produce);
 });
 
 var server = app.listen(9002, 'localhost', function () {
@@ -96,4 +75,4 @@ var server = app.listen(9002, 'localhost', function () {
 
   console.log('OAuth Resource Server is listening at http://%s:%s', host, port);
 });
-
+ 
