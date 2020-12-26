@@ -1,0 +1,12 @@
+{"access_token":"9NBU7ee1FzhfXWJmoHjjeQ7PTrEwCepH","client_id":"oauth-client-1","scope":["movies","foods","music"],"user":"alice"}
+{"refresh_token":"wO0fapBlYceSYbFGA6Q1i4g2BlsSe30I","client_id":"oauth-client-1","scope":["movies","foods","music"],"user":{"sub":"9XE3-JI34-00132A","preferred_username":"alice","name":"Alice","email":"alice.wonderland@example.com","email_verified":true}}
+{"access_token":"bC2UrKuByBE3mnnPOuhNK2ccx4dFAc6D","client_id":"oauth-client-1","scope":["movies","foods","music"],"user":"bob"}
+{"refresh_token":"iCLnQMgjYP2G0TuECXtEmT5TA643t2df","client_id":"oauth-client-1","scope":["movies","foods","music"],"user":{"sub":"1ZT5-OE63-57383B","preferred_username":"bob","name":"Bob","email":"bob.loblob@example.net","email_verified":false}}
+{"access_token":"sSt8a94oaQHH8lHNCrgzyMQ1C2oxbuW7","client_id":"oauth-client-1","scope":["movies","foods","music"],"user":"bob"}
+{"refresh_token":"QtlIxQIZs2EmK45USBIBNNBCTFRvvee1","client_id":"oauth-client-1","scope":["movies","foods","music"],"user":{"sub":"1ZT5-OE63-57383B","preferred_username":"bob","name":"Bob","email":"bob.loblob@example.net","email_verified":false}}
+{"access_token":"rcabdPtoi3Cug476hSdZNmHscVNdEdBC","client_id":"oauth-client-1","scope":["movies","foods","music"],"user":"alice"}
+{"refresh_token":"UbMq7zXFrCO6GFJtsaFyvJSx9eCtTM0e","client_id":"oauth-client-1","scope":["movies","foods","music"],"user":{"sub":"9XE3-JI34-00132A","preferred_username":"alice","name":"Alice","email":"alice.wonderland@example.com","email_verified":true}}
+{"access_token":"X2NDLNMUkTz3dOsld6Yhd8WZsg7Hm0zr","client_id":"oauth-client-1","scope":["movies","foods","music"],"user":"alice"}
+{"refresh_token":"22JRdmuwzGIDDSLT0IViXfw54OszPELp","client_id":"oauth-client-1","scope":["movies","foods","music"],"user":{"sub":"9XE3-JI34-00132A","preferred_username":"alice","name":"Alice","email":"alice.wonderland@example.com","email_verified":true}}
+{"access_token":"ygP9Og1XNDtpOF2QvpmeBjkSR1LXCWHA","client_id":"oauth-client-1","scope":["movies"],"user":"alice"}
+{"refresh_token":"TFNj9L08A7H01g2rDiihBOAbrabTegBO","client_id":"oauth-client-1","scope":["movies"],"user":{"sub":"9XE3-JI34-00132A","preferred_username":"alice","name":"Alice","email":"alice.wonderland@example.com","email_verified":true}}
