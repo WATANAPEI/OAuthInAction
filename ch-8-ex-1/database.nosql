@@ -1,0 +1,4 @@
+{"access_token":"64fAFhJgXP3GWVsxk4e0yaNoTrM15hOc","client_id":"oauth-client-1","scope":["greeting"],"user":{"sub":"9XE3-JI34-00132A","preferred_username":"alice","name":"Alice","email":"alice.wonderland@example.com","email_verified":true}}
+{"refresh_token":"uDICytEq9Rxfejpl0IKINaz22vBowRmJ","client_id":"oauth-client-1","scope":["greeting"],"user":{"sub":"9XE3-JI34-00132A","preferred_username":"alice","name":"Alice","email":"alice.wonderland@example.com","email_verified":true}}
+{"access_token":"tmf9b3wRH156mDKpWgkh7rqXoUEMfDeG","client_id":"oauth-client-1","scope":["greeting"],"user":{"sub":"9XE3-JI34-00132A","preferred_username":"alice","name":"Alice","email":"alice.wonderland@example.com","email_verified":true}}
+{"refresh_token":"KtjMrfEAOuynWgpenxHbLFW2Ko553Fpo","client_id":"oauth-client-1","scope":["greeting"],"user":{"sub":"9XE3-JI34-00132A","preferred_username":"alice","name":"Alice","email":"alice.wonderland@example.com","email_verified":true}}
